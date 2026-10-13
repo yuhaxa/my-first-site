@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   const techStack = [
     {
@@ -51,6 +53,19 @@ export default function Home() {
           <p className="text-neutral-700 font-medium text-xs sm:text-sm text-left leading-relaxed">
             Next.js App Router, TypeScript, Tailwind CSS 기반의 가장 단순하고 깔끔한 스타터 템플릿입니다.
           </p>
+
+          {/* 새로운 페이지로 연결되는 버튼 */}
+          <div className="pt-2">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#AD2953] hover:bg-[#8e2043] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <span>소개 페이지 구경하기</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
 
         {/* 기술 스택 카드 (박스 색상 통일) */}
