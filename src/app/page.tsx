@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[linear-gradient(to_bottom,#DAE9DF_0%,#D8EFF2_33%,#D8EFF2_100%)] text-gray-800 flex flex-col items-center justify-center p-6 sm:p-12">
-      <div className="max-w-2xl w-full text-center space-y-8">
+      <div className="max-w-2xl w-full text-left space-y-8">
         {/* 상단 뱃지 */}
         <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#AD2953]">
           <span className="inline-block w-2 h-2 rounded-full bg-[#AD2953]" />
@@ -24,8 +24,8 @@ export default function Home() {
         </div>
 
         {/* 메인 타이틀 및 별 고양이 */}
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="w-max mx-auto space-y-3">
+        <div className="flex flex-col items-start text-left space-y-4">
+          <div className="w-fit space-y-3">
             {/* 별 고양이 5개 */}
             <div className="flex items-center justify-between w-full px-1">
               <svg width="0" height="0" className="absolute">
@@ -48,7 +48,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <p className="text-neutral-700 font-medium text-xs sm:text-sm text-center leading-relaxed whitespace-nowrap">
+          <p className="text-neutral-700 font-medium text-xs sm:text-sm text-left leading-relaxed">
             Next.js App Router, TypeScript, Tailwind CSS 기반의 가장 단순하고 깔끔한 스타터 템플릿입니다.
           </p>
         </div>
