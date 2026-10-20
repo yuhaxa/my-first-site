@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 export default function Home() {
   const techStack = [
@@ -54,8 +55,20 @@ export default function Home() {
             Next.js App Router, TypeScript, Tailwind CSS 기반의 가장 단순하고 깔끔한 스타터 템플릿입니다.
           </p>
 
-          {/* 새로운 페이지로 연결되는 버튼 */}
-          <div className="pt-2">
+          {/* 버튼 영역 */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* 문의사항 바로가기 버튼 */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#AD2953] bg-white/90 hover:bg-white border border-[#AD2953] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span>문의사항 남기기</span>
+            </a>
+
+            {/* 바이브코딩 시작하기 버튼 */}
             <Link
               href="/about"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#AD2953] hover:bg-[#8e2043] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
@@ -96,6 +109,9 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        {/* 문의사항 섹션 */}
+        <ContactForm />
       </div>
     </main>
   );
