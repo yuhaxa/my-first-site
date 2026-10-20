@@ -10,6 +10,7 @@ export default function ContactForm() {
     message: "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [submitError, setSubmitError] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -37,8 +38,9 @@ export default function ContactForm() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError("");
 
     const formErrors = validate();
     if (Object.keys(formErrors).length > 0) {
@@ -49,12 +51,28 @@ export default function ContactForm() {
     setErrors({});
     setIsSubmitting(true);
 
-    // 문의 제출 시뮬레이션
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "이메일 전송에 실패했습니다.");
+      }
+
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 600);
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "이메일 전송 중 오류가 발생했습니다.";
+      setSubmitError(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -187,6 +205,12 @@ export default function ContactForm() {
               <p className="text-[11px] sm:text-xs text-red-600 font-medium pt-0.5">{errors.message}</p>
             )}
           </div>
+
+          {submitError && (
+            <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs sm:text-sm text-red-600 font-medium">
+              ⚠️ {submitError}
+            </div>
+          )}
 
           {/* 버튼 영역 */}
           <div className="flex justify-end pt-1">
