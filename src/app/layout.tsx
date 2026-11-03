@@ -2,8 +2,29 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My First Site | Next.js",
-  description: "Next.js, TypeScript, Tailwind CSS로 만든 첫 번째 웹사이트",
+  metadataBase: new URL("https://www.xeoag.xyz"),
+  title: "깅월",
+  description: "오늘도 행복한 하루",
+  openGraph: {
+    title: "깅월",
+    description: "오늘도 행복한 하루",
+    url: "https://www.xeoag.xyz",
+    siteName: "깅월",
+    images: [
+      {
+        url: "/cat.jpg",
+        alt: "깅월",
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "깅월",
+    description: "오늘도 행복한 하루",
+    images: ["/cat.jpg"],
+  },
   verification: {
     google: "-C_jUeBbB_VlP4HgqpPJ5Ep2mB8u3JSop_5VBC9CpUo",
     other: {
