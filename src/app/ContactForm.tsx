@@ -83,162 +83,148 @@ export default function ContactForm() {
   };
 
   return (
-    <div
+    <section
       id="contact"
-      className="p-5 sm:p-6 rounded-2xl border border-[#AD2953] bg-[#D8EFF2] text-left space-y-4 scroll-mt-6 sm:scroll-mt-10 font-sans"
+      className="rounded-2xl border-2 border-[var(--window-border)] bg-[var(--window-bg)] retro-window-shadow overflow-hidden scroll-mt-6 sm:scroll-mt-10"
     >
-      <div className="space-y-1">
-        <div className="flex items-center gap-2 text-xs font-bold text-[#AD2953] uppercase tracking-wider">
-          <span className="text-sm">💬</span>
-          <span>문의사항 남기기</span>
+      {/* 윈도우 타이틀바 */}
+      <div className="flex items-center justify-between px-3.5 py-2 bg-gradient-to-r from-[var(--window-bar-start)] to-[var(--window-bar-end)] border-b border-[var(--window-border)] text-[var(--window-bar-text)] select-none">
+        <div className="flex items-center gap-2 font-bold text-xs">
+          <span>💌</span>
+          <span>contact_messenger.exe</span>
         </div>
-        <p className="text-xs sm:text-sm text-neutral-700 font-medium">
-          궁금한 점이나 남기고 싶으신 메시지가 있다면 언제든 작성해 주세요!
-        </p>
+        <div className="flex items-center gap-1.5">
+          <button type="button" aria-label="최소화" className="w-4 h-4 rounded-sm bg-white/70 border border-[var(--window-border)] flex items-center justify-center text-[9px] font-bold text-[var(--window-bar-text)] hover:bg-white shadow-xs">_</button>
+          <button type="button" aria-label="최대화" className="w-4 h-4 rounded-sm bg-white/70 border border-[var(--window-border)] flex items-center justify-center text-[9px] font-bold text-[var(--window-bar-text)] hover:bg-white shadow-xs">□</button>
+          <button type="button" aria-label="닫기" className="w-4 h-4 rounded-sm bg-[#e8889e] border border-[#a63e55] flex items-center justify-center text-[9px] font-bold text-white hover:bg-[#d66b84] shadow-xs">×</button>
+        </div>
       </div>
 
-      {isSubmitted ? (
-        <div className="p-5 rounded-xl bg-white/80 border border-[#AD2953]/30 text-center space-y-2 py-6">
-          <div className="text-2xl">✨</div>
-          <p className="text-sm sm:text-base font-bold text-[#AD2953]">문의사항이 성공적으로 접수되었습니다!</p>
-          <p className="text-xs sm:text-sm text-neutral-700 font-medium">
-            남겨주신 소중한 메시지를 확인 후 빠르게 답변드리겠습니다.
+      <div className="p-4 sm:p-6 space-y-4">
+        <div className="space-y-1">
+          <h2 className="text-xs sm:text-sm font-bold text-[var(--primary)] uppercase tracking-wider flex items-center gap-1.5">
+            <span>💬</span>
+            <span>문의사항 남기기</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-[var(--text-sub)]">
+            궁금한 점이나 남기고 싶으신 메시지가 있다면 언제든 편하게 작성해 주세요!
           </p>
-          <div className="pt-2">
+        </div>
+
+        {isSubmitted ? (
+          <div className="p-5 rounded-xl border border-emerald-300 bg-emerald-50 text-center space-y-2">
+            <div className="text-2xl">🎉</div>
+            <h3 className="font-bold text-sm text-emerald-800">문의가 성공적으로 전송되었습니다!</h3>
+            <p className="text-xs text-emerald-700 leading-relaxed">
+              작성해 주신 이메일로 확인 후 빠른 시일 내에 답변드리겠습니다.
+            </p>
             <button
               type="button"
               onClick={() => setIsSubmitted(false)}
-              className="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-[#AD2953] border border-[#AD2953] hover:bg-[#AD2953] hover:text-white transition-all shadow-sm"
+              className="mt-2 btn-retro-secondary px-4 py-1.5 rounded-full text-xs font-bold"
             >
-              새로운 문의 작성하기
+              새 문의 작성하기
             </button>
           </div>
-        </div>
-      ) : (
-        <form noValidate onSubmit={handleSubmit} className="space-y-3.5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* 이름 / 닉네임 */}
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-3.5">
+            {submitError && (
+              <div className="p-3 rounded-lg border border-red-300 bg-red-50 text-xs text-red-700">
+                ⚠️ {submitError}
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <label htmlFor="contact-name" className="block text-xs font-semibold text-[var(--text-main)]">
+                  보내시는 분 성함 / 닉네임 <span className="text-[var(--primary)]">*</span>
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  placeholder="예: 홍길동"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
+                  className={`w-full px-3 py-2 text-xs sm:text-sm rounded-lg border bg-white text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/30 ${
+                    errors.name ? "border-red-400" : "border-[var(--card-border)]"
+                  }`}
+                />
+                {errors.name && <p className="text-[11px] text-red-500">{errors.name}</p>}
+              </div>
+
+              <div className="space-y-1">
+                <label htmlFor="contact-email" className="block text-xs font-semibold text-[var(--text-main)]">
+                  회신받으실 이메일 <span className="text-[var(--primary)]">*</span>
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  placeholder="name@example.com"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
+                  className={`w-full px-3 py-2 text-xs sm:text-sm rounded-lg border bg-white text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/30 ${
+                    errors.email ? "border-red-400" : "border-[var(--card-border)]"
+                  }`}
+                />
+                {errors.email && <p className="text-[11px] text-red-500">{errors.email}</p>}
+              </div>
+            </div>
+
             <div className="space-y-1">
-              <label htmlFor="contact-name" className="block text-xs sm:text-sm font-bold text-[#AD2953]">
-                이름 / 닉네임 <span className="text-[#AD2953]">*</span>
+              <label htmlFor="contact-subject" className="block text-xs font-semibold text-[var(--text-main)]">
+                문의 제목 <span className="text-[var(--primary)]">*</span>
               </label>
               <input
-                id="contact-name"
+                id="contact-subject"
                 type="text"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                placeholder="홍길동"
-                className={`w-full px-3.5 py-2.5 rounded-xl border font-sans text-xs sm:text-sm text-neutral-800 placeholder-neutral-400 bg-white/85 focus:outline-none transition-colors ${
-                  errors.name
-                    ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                    : "border-[#AD2953]/40 focus:border-[#AD2953] focus:ring-1 focus:ring-[#AD2953]"
+                placeholder="어떤 내용에 관한 문의인가요?"
+                value={formData.subject}
+                onChange={(e) => handleInputChange("subject", e.target.value)}
+                className={`w-full px-3 py-2 text-xs sm:text-sm rounded-lg border bg-white text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/30 ${
+                  errors.subject ? "border-red-400" : "border-[var(--card-border)]"
                 }`}
               />
-              {errors.name && (
-                <p className="text-[11px] sm:text-xs text-red-600 font-medium pt-0.5">{errors.name}</p>
-              )}
+              {errors.subject && <p className="text-[11px] text-red-500">{errors.subject}</p>}
             </div>
 
-            {/* 이메일 */}
             <div className="space-y-1">
-              <label htmlFor="contact-email" className="block text-xs sm:text-sm font-bold text-[#AD2953]">
-                이메일 <span className="text-[#AD2953]">*</span>
+              <label htmlFor="contact-message" className="block text-xs font-semibold text-[var(--text-main)]">
+                문의 내용 <span className="text-[var(--primary)]">*</span>
               </label>
-              <input
-                id="contact-email"
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
-                placeholder="example@email.com"
-                className={`w-full px-3.5 py-2.5 rounded-xl border font-sans text-xs sm:text-sm text-neutral-800 placeholder-neutral-400 bg-white/85 focus:outline-none transition-colors ${
-                  errors.email
-                    ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                    : "border-[#AD2953]/40 focus:border-[#AD2953] focus:ring-1 focus:ring-[#AD2953]"
+              <textarea
+                id="contact-message"
+                rows={4}
+                placeholder="궁금하신 점이나 전하고 싶은 메시지를 자유롭게 적어 주세요."
+                value={formData.message}
+                onChange={(e) => handleInputChange("message", e.target.value)}
+                className={`w-full px-3 py-2 text-xs sm:text-sm rounded-lg border bg-white text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/30 leading-relaxed ${
+                  errors.message ? "border-red-400" : "border-[var(--card-border)]"
                 }`}
               />
-              {errors.email && (
-                <p className="text-[11px] sm:text-xs text-red-600 font-medium pt-0.5">{errors.email}</p>
-              )}
+              {errors.message && <p className="text-[11px] text-red-500">{errors.message}</p>}
             </div>
-          </div>
 
-          {/* 문의 제목 */}
-          <div className="space-y-1">
-            <label htmlFor="contact-subject" className="block text-xs sm:text-sm font-bold text-[#AD2953]">
-              문의 제목 <span className="text-[#AD2953]">*</span>
-            </label>
-            <input
-              id="contact-subject"
-              type="text"
-              value={formData.subject}
-              onChange={(e) => handleInputChange("subject", e.target.value)}
-              placeholder="문의 제목을 입력해 주세요"
-              className={`w-full px-3.5 py-2.5 rounded-xl border font-sans text-xs sm:text-sm text-neutral-800 placeholder-neutral-400 bg-white/85 focus:outline-none transition-colors ${
-                errors.subject
-                  ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-[#AD2953]/40 focus:border-[#AD2953] focus:ring-1 focus:ring-[#AD2953]"
-              }`}
-            />
-            {errors.subject && (
-              <p className="text-[11px] sm:text-xs text-red-600 font-medium pt-0.5">{errors.subject}</p>
-            )}
-          </div>
-
-          {/* 문의 내용 */}
-          <div className="space-y-1">
-            <label htmlFor="contact-message" className="block text-xs sm:text-sm font-bold text-[#AD2953]">
-              문의 내용 <span className="text-[#AD2953]">*</span>
-            </label>
-            <textarea
-              id="contact-message"
-              rows={4}
-              value={formData.message}
-              onChange={(e) => handleInputChange("message", e.target.value)}
-              placeholder="문의하실 내용을 자유롭게 입력해 주세요."
-              className={`w-full px-3.5 py-2.5 rounded-xl border font-sans text-xs sm:text-sm text-neutral-800 placeholder-neutral-400 bg-white/85 focus:outline-none transition-colors resize-none ${
-                errors.message
-                  ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-[#AD2953]/40 focus:border-[#AD2953] focus:ring-1 focus:ring-[#AD2953]"
-              }`}
-            />
-            {errors.message && (
-              <p className="text-[11px] sm:text-xs text-red-600 font-medium pt-0.5">{errors.message}</p>
-            )}
-          </div>
-
-          {submitError && (
-            <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs sm:text-sm text-red-600 font-medium">
-              ⚠️ {submitError}
+            <div className="pt-1">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-retro-primary w-full py-2.5 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="inline-block w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>전송 중...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>📮 문의 메일 보내기</span>
+                  </>
+                )}
+              </button>
             </div>
-          )}
-
-          {/* 버튼 영역 */}
-          <div className="flex justify-end pt-1">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#AD2953] hover:bg-[#8e2043] transition-all shadow-sm hover:shadow hover:scale-[1.01] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? (
-                <>
-                  <svg className="animate-spin -ml-1 mr-1 h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-                  </svg>
-                  <span>보내는 중...</span>
-                </>
-              ) : (
-                <>
-                  <span>문의 보내기</span>
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </>
-              )}
-            </button>
-          </div>
-        </form>
-      )}
-    </div>
+          </form>
+        )}
+      </div>
+    </section>
   );
 }

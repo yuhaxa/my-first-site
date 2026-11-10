@@ -1,1 +1,72 @@
 @import "tailwindcss";
+
+:root {
+  /* =========================================================
+     🎨 사이트 테마 색상 변수 (이곳 한 줄만 바꾸면 전체 색상이 변경됩니다)
+     ========================================================= */
+  --primary: #AD2953;                 /* 메인 포인트 컬러 (와인 마젠타) */
+  --primary-hover: #8e2043;           /* 포인트 컬러 호버 */
+  --primary-light: #fbeaf0;           /* 옅은 포인트 배경 */
+  
+  --bg-gradient-start: #DAE9DF;       /* 전체 배경 그라디언트 상단 (민트) */
+  --bg-gradient-mid: #E1EBF5;         /* 전체 배경 그라디언트 중단 (페일 스카이) */
+  --bg-gradient-end: #D8EFF2;         /* 전체 배경 그라디언트 하단 (파스텔 청록) */
+
+  --window-bg: #F4F8FC;               /* 레트로 창틀 배경 */
+  --window-border: #7B9BBF;           /* 레트로 창틀 테두리 */
+  --window-bar-start: #B0CAE8;        /* 윈도우 타이틀바 그라디언트 시작 */
+  --window-bar-end: #8AAED6;          /* 윈도우 타이틀바 그라디언트 끝 */
+  --window-bar-text: #1E3A5F;         /* 윈도우 타이틀바 글자색 */
+
+  --card-bg: #FFFFFF;                 /* 내부 카드 배경 */
+  --card-border: #9DBBD9;             /* 내부 카드 테두리 */
+
+  --text-main: #1E293B;               /* 메인 본문 글자색 (짙은 네이비 차콜) */
+  --text-sub: #475569;                /* 서브 본문 글자색 */
+
+  --pill-bg: #EAF2FB;                 /* 알약 캡슐 뱃지 배경 */
+  --pill-border: #89A9CF;             /* 알약 캡슐 뱃지 테두리 */
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 40%, var(--bg-gradient-end) 100%);
+  min-height: 100vh;
+}
+
+/* 레트로 베벨 입체 버튼 (눌리는 손맛 효과) */
+.btn-retro-primary {
+  background: linear-gradient(to bottom, #d44d78 0%, var(--primary) 100%);
+  color: #ffffff;
+  border: 1px solid #731333;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4), 0 3px 0 #610d29, 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.1s ease;
+}
+.btn-retro-primary:hover {
+  background: linear-gradient(to bottom, #de5a84 0%, #992046 100%);
+}
+.btn-retro-primary:active {
+  transform: translateY(2px);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 #610d29;
+}
+
+.btn-retro-secondary {
+  background: linear-gradient(to bottom, #ffffff 0%, #eef4fb 100%);
+  color: var(--primary);
+  border: 1px solid var(--window-border);
+  box-shadow: inset 1px 1px 0px #ffffff, 0 3px 0 #95b3d4, 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}
+.btn-retro-secondary:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e2ecf7 100%);
+}
+.btn-retro-secondary:active {
+  transform: translateY(2px);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2), 0 1px 0 #95b3d4;
+}
+
+/* 윈도우 창 섀도우 */
+.retro-window-shadow {
+  box-shadow: 4px 4px 0px rgba(123, 155, 191, 0.5), 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}

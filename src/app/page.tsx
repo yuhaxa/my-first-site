@@ -6,31 +6,49 @@ export default function Home() {
     {
       name: "Next.js 16",
       desc: "App Router & Turbopack",
+      tag: "FRAMEWORK",
     },
     {
       name: "TypeScript",
       desc: "안정적인 정적 타입 시스템",
+      tag: "LANGUAGE",
     },
     {
       name: "Tailwind CSS",
       desc: "모던 유틸리티 스타일링",
+      tag: "STYLING",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(to_bottom,#DAE9DF_0%,#D8EFF2_33%,#D8EFF2_100%)] text-gray-800 flex flex-col items-center justify-center p-6 sm:p-12">
-      <div className="max-w-2xl w-full text-left space-y-8">
-        {/* 상단 뱃지 */}
-        <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#AD2953]">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#AD2953]" />
-          프로젝트 준비 완료
-        </div>
+    <main className="min-h-screen flex flex-col items-center justify-start p-4 sm:p-8 md:p-12">
+      <div className="max-w-2xl w-full space-y-6">
 
-        {/* 메인 타이틀 및 별 고양이 */}
-        <div className="flex flex-col items-start text-left space-y-4">
-          <div className="w-fit space-y-3">
-            {/* 별 고양이 5개 */}
-            <div className="flex items-center justify-between w-full px-1">
+        {/* =========================================================
+            1. 레트로 Y2K 엠블럼 헤더 (타원형 알약 프레임 & 미니 상태 위젯)
+           ========================================================= */}
+        <header className="relative w-full rounded-[36px] sm:rounded-[44px] p-5 sm:p-7 border-2 border-[var(--window-border)] bg-[var(--window-bg)] retro-window-shadow overflow-hidden">
+          {/* 상단 미니 상태 위젯 바 */}
+          <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-[var(--card-border)]/60 text-xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--pill-bg)] border border-[var(--pill-border)] font-semibold text-[var(--primary)] text-[11px] sm:text-xs">
+              <span className="inline-block w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
+              <span>프로젝트 준비 완료</span>
+            </div>
+
+            {/* 레트로 날짜/무드 뱃지 (없는 정보는 [ ] 처리) */}
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-[var(--window-border)]/50 text-[11px] text-[var(--text-sub)]">
+              <span>Mood:</span>
+              <span className="font-semibold text-[var(--primary)]">[ ]</span>
+              <span className="text-[10px] text-gray-400">|</span>
+              <span>Status:</span>
+              <span className="font-semibold text-emerald-600">[ ]</span>
+            </div>
+          </div>
+
+          {/* 중앙 알약 엠블럼: 별 고양이 5개 + 대제목 */}
+          <div className="flex flex-col items-center text-center space-y-3">
+            {/* 별 고양이 5개 (SVG clipPath) */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2.5">
               <svg width="0" height="0" className="absolute">
                 <defs>
                   <clipPath id="star-clip">
@@ -39,83 +57,120 @@ export default function Home() {
                 </defs>
               </svg>
               {[1, 2, 3, 4, 5].map((i) => (
-                <svg key={i} className="w-10 h-10 sm:w-14 sm:h-14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg key={i} className="w-9 h-9 sm:w-12 sm:h-12 drop-shadow-sm hover:scale-110 transition-transform cursor-pointer" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <image href="/cat.jpg" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice" clipPath="url(#star-clip)" />
-                  <path d="M 50 2 Q 53 2 55 8 L 63 28 L 88 32 Q 93 33 91 38 L 74 56 L 79 82 Q 80 87 75 85 L 50 73 L 25 85 Q 20 87 21 82 L 26 56 L 9 38 Q 7 33 12 32 L 37 28 L 45 8 Q 47 2 50 2 Z" stroke="#AD2953" strokeWidth="1" vectorEffect="non-scaling-stroke" fill="none" />
+                  <path d="M 50 2 Q 53 2 55 8 L 63 28 L 88 32 Q 93 33 91 38 L 74 56 L 79 82 Q 80 87 75 85 L 50 73 L 25 85 Q 20 87 21 82 L 26 56 L 9 38 Q 7 33 12 32 L 37 28 L 45 8 Q 47 2 50 2 Z" stroke="var(--primary)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" fill="none" />
                 </svg>
               ))}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tighter text-neutral-900 whitespace-nowrap">
+            {/* 타이틀 타이포그래피 (모바일 28px / 데스크톱 36px) */}
+            <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[var(--text-main)]">
               안녕하세요, 깅나라입니다
             </h1>
-          </div>
 
-          <p className="text-neutral-700 font-medium text-xs sm:text-sm text-left leading-relaxed">
-            Next.js App Router, TypeScript, Tailwind CSS 기반의 가장 단순하고 깔끔한 스타터 템플릿입니다.
-          </p>
-
-          {/* 버튼 영역 */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            {/* 문의사항 바로가기 버튼 */}
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#AD2953] bg-white/90 hover:bg-white border border-[#AD2953] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              <span>문의사항 남기기</span>
-            </a>
-
-            {/* 바이브코딩 시작하기 버튼 */}
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#AD2953] hover:bg-[#8e2043] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>바이브코딩 시작하기</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-
-        {/* 기술 스택 카드 (박스 색상 통일) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left">
-          {techStack.map((tech) => (
-            <div
-              key={tech.name}
-              className="p-4 rounded-2xl border border-[#AD2953] bg-[#D8EFF2]"
-            >
-              <div className="font-bold text-sm text-[#AD2953]">{tech.name}</div>
-              <div className="text-xs text-[#AD2953] mt-1">{tech.desc}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* 시작 안내 카드 (박스 색상 통일) */}
-        <div className="p-5 rounded-2xl border border-[#AD2953] bg-[#D8EFF2] text-left space-y-3">
-          <div className="text-xs font-bold text-[#AD2953] uppercase tracking-wider">
-            시작하기
-          </div>
-          <div className="space-y-2.5 text-sm">
-            <div className="flex items-center justify-between bg-[#D8EFF2] px-3.5 py-2.5 rounded-xl border border-[#AD2953] font-mono text-xs text-[#AD2953]">
-              <span className="font-semibold">npm run dev</span>
-              <span className="text-[#AD2953] font-sans text-[11px]">로컬 서버 실행 (http://localhost:3000)</span>
-            </div>
-            <p className="text-xs text-[#AD2953]">
-              <code className="text-[#AD2953] font-mono bg-[#D8EFF2] px-2 py-0.5 rounded border border-[#AD2953] font-medium">src/app/page.tsx</code> 파일을 수정하여 나만의 사이트를 만들어보세요.
+            {/* 한 줄 본문 소개 */}
+            <p className="text-xs sm:text-sm text-[var(--text-sub)] max-w-md leading-relaxed font-normal">
+              Next.js와 TypeScript로 소소하고 특별한 디지털 공간을 만들어갑니다.
             </p>
-          </div>
-        </div>
 
-        {/* 문의사항 섹션 */}
+            {/* 레트로 볼록 캡슐 버튼 (Beveled Pill Buttons) */}
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+              <Link
+                href="/about"
+                className="btn-retro-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm"
+              >
+                <span>소개 보러가기</span>
+                <span className="text-xs">→</span>
+              </Link>
+              <a
+                href="#contact"
+                className="btn-retro-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm"
+              >
+                <span>💬 문의하기</span>
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {/* =========================================================
+            2. 클래식 OS 윈도우 창 프레임 (기술 스택 & 시작하기)
+           ========================================================= */}
+        <section className="rounded-2xl border-2 border-[var(--window-border)] bg-[var(--window-bg)] retro-window-shadow overflow-hidden">
+          {/* 클래식 윈도우 타이틀바 */}
+          <div className="flex items-center justify-between px-3.5 py-2 bg-gradient-to-r from-[var(--window-bar-start)] to-[var(--window-bar-end)] border-b border-[var(--window-border)] text-[var(--window-bar-text)] select-none">
+            <div className="flex items-center gap-2 font-bold text-xs">
+              <span>📁</span>
+              <span>desktop_system_info.exe</span>
+            </div>
+            {/* 윈도우 제어 버튼 [_][□][X] */}
+            <div className="flex items-center gap-1.5">
+              <button type="button" aria-label="최소화" className="w-4 h-4 rounded-sm bg-white/70 border border-[var(--window-border)] flex items-center justify-center text-[9px] font-bold text-[var(--window-bar-text)] hover:bg-white shadow-xs">_</button>
+              <button type="button" aria-label="최대화" className="w-4 h-4 rounded-sm bg-white/70 border border-[var(--window-border)] flex items-center justify-center text-[9px] font-bold text-[var(--window-bar-text)] hover:bg-white shadow-xs">□</button>
+              <button type="button" aria-label="닫기" className="w-4 h-4 rounded-sm bg-[#e8889e] border border-[#a63e55] flex items-center justify-center text-[9px] font-bold text-white hover:bg-[#d66b84] shadow-xs">×</button>
+            </div>
+          </div>
+
+          {/* 윈도우 창 내부 콘텐츠 */}
+          <div className="p-4 sm:p-6 space-y-5">
+            {/* 상단 서브 헤더 */}
+            <div className="flex items-center justify-between border-b border-[var(--card-border)]/50 pb-2">
+              <h2 className="text-xs sm:text-sm font-bold text-[var(--primary)] uppercase tracking-wider flex items-center gap-1.5">
+                <span>⚡</span>
+                <span>기술 스택 (Tech Stack)</span>
+              </h2>
+              <span className="text-[11px] text-[var(--text-sub)]">v[ ]</span>
+            </div>
+
+            {/* 기술 스택 3대 아치/위젯형 카드 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {techStack.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="p-3.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] shadow-xs hover:border-[var(--primary)] hover:shadow-sm transition-all"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[var(--pill-bg)] text-[var(--primary)] border border-[var(--pill-border)]">
+                      {tech.tag}
+                    </span>
+                  </div>
+                  <div className="font-bold text-sm text-[var(--text-main)]">{tech.name}</div>
+                  <div className="text-xs text-[var(--text-sub)] mt-1">{tech.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* 시작 안내 미니 터미널 박스 */}
+            <div className="p-3.5 sm:p-4 rounded-xl border border-[var(--card-border)] bg-white/90 space-y-2">
+              <div className="flex items-center justify-between text-xs text-[var(--text-sub)] font-semibold">
+                <span className="flex items-center gap-1 text-[var(--primary)]">
+                  <span>💻</span>
+                  <span>로컬 개발 안내</span>
+                </span>
+                <span className="text-[11px] font-mono text-gray-400">terminal</span>
+              </div>
+              <div className="flex items-center justify-between bg-[var(--text-main)] text-white px-3.5 py-2 rounded-lg font-mono text-xs shadow-inner">
+                <span className="text-emerald-400 font-bold">$ npm run dev</span>
+                <span className="text-gray-400 font-sans text-[11px]">http://localhost:3000</span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-[var(--text-sub)] leading-normal pt-0.5">
+                <code className="text-[var(--primary)] font-mono bg-[var(--primary-light)] px-1.5 py-0.5 rounded border border-[var(--primary)]/30 font-semibold">src/app/page.tsx</code> 파일을 열어 나만의 콘텐츠를 자유롭게 수정해 보세요.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================
+            3. 문의사항 폼 (레트로 윈도우 스타일 적용)
+           ========================================================= */}
         <ContactForm />
+
+        {/* 하단 푸터 카피라이트 */}
+        <footer className="text-center py-4 text-[11px] text-[var(--text-sub)] font-medium">
+          <p>© [ ] 깅나라 (ginnara) · All rights reserved.</p>
+        </footer>
+
       </div>
     </main>
   );
 }
-
-
-
