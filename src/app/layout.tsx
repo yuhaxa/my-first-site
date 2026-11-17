@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.xeoag.xyz"),
-  title: "[ ] × 헬로키티 콜라보 컬렉션",
-  description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
+  title: "11월 19일 오픈! 스타벅스 × 헬로키티 크리스마스 콜라보",
+  description: "11월 19일부터 시작되는 스타벅스 코리아 2차 크리스마스 프로모션! 헬로키티 토피 초콜릿 음료, 마카롱, 22종 한정판 MD(트리, 머그, 텀블러) 실물 사진과 판매 정보 안내입니다.",
   openGraph: {
-    title: "[ ] × 헬로키티 콜라보 컬렉션",
-    description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
+    title: "11월 19일 오픈! 스타벅스 × 헬로키티 크리스마스 콜라보",
+    description: "11월 19일부터 시작되는 스타벅스 코리아 2차 크리스마스 프로모션! 헬로키티 토피 초콜릿 음료, 마카롱, 22종 한정판 MD 실물 사진과 판매 정보 안내.",
     url: "https://www.xeoag.xyz",
-    siteName: "HELLO KITTY COLLABORATION",
+    siteName: "STARBUCKS × HELLO KITTY HOLIDAY",
     images: [
       {
-        url: "/cat.jpg",
-        alt: "헬로키티 콜라보",
+        url: "https://about.starbucks.com/uploads/sites/29/2024/09/Hello-Kitty-KV1.png",
+        alt: "스타벅스 헬로키티 크리스마스 콜라보",
       },
     ],
     locale: "ko_KR",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "[ ] × 헬로키티 콜라보 컬렉션",
-    description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
-    images: ["/cat.jpg"],
+    title: "11월 19일 오픈! 스타벅스 × 헬로키티 크리스마스 콜라보",
+    description: "11월 19일부터 시작되는 스타벅스 코리아 2차 크리스마스 프로모션 실물 사진 및 판매 정보.",
+    images: ["https://about.starbucks.com/uploads/sites/29/2024/09/Hello-Kitty-KV1.png"],
   },
   verification: {
     google: "-C_jUeBbB_VlP4HgqpPJ5Ep2mB8u3JSop_5VBC9CpUo",
