@@ -2,6 +2,90 @@ import Link from "next/link";
 import ContactForm from "./ContactForm";
 
 export default function Home() {
+  // 이번 11월 19일(목) 1차 공식 출시 굿즈(MD) 리스트 및 정가
+  const mdItems = [
+    {
+      id: "md-tree",
+      name: "크리스마스 미니 트리",
+      price: "61,000원",
+      tag: "HOT & LIMITED",
+      tagColor: "bg-[#D62300] text-white",
+      desc: "레드 깅엄 체크 패턴의 화분과 헬로키티 & 스타벅스 커피 클립 오너먼트가 포함된 크리스마스 인테리어 트리 오브제입니다.",
+      icon: "🎄",
+      highlight: "키티 & 커피 클립 오너먼트 포함",
+    },
+    {
+      id: "md-handle-tumbler",
+      name: "레드 핸들 텀블러",
+      price: "52,000원",
+      tag: "NEW",
+      tagColor: "bg-[#006241] text-white",
+      desc: "편리한 그립감의 튼튼한 핸들과 감각적인 레드 컬러웨이가 돋보이는 대용량 보온·보냉 스테인리스 텀블러입니다.",
+      icon: "🥤",
+      highlight: "인체공학적 핸들 & 진공 보온 구조",
+    },
+    {
+      id: "md-ribbon-coldcup",
+      name: "화이트 리본 콜드컵",
+      price: "48,000원",
+      tag: "SIGNATURE",
+      tagColor: "bg-[#D62300] text-white",
+      desc: "사탕 지팡이(캔디 케인) 스트라이프 빨대와 헬로키티의 시그니처 대형 레드 리본 장식이 더해진 크리스마스 콜드컵입니다.",
+      icon: "🎀",
+      highlight: "캔디 케인 스트로우 + 대형 레드 리본",
+    },
+    {
+      id: "md-face-mug",
+      name: "헬로키티 페이스 머그",
+      price: "38,000원",
+      tag: "BEST",
+      tagColor: "bg-[#006241] text-white",
+      desc: "헬로키티의 사랑스러운 얼굴 형태를 입체적으로 형상화한 소장 가치 100% 한정판 도자기 세라믹 머그잔입니다.",
+      icon: "☕",
+      highlight: "3D 입체 키티 얼굴 디자인",
+    },
+    {
+      id: "md-slim-thermos",
+      name: "화이트 슬림 보온병",
+      price: "38,000원",
+      tag: "PORTABLE",
+      tagColor: "bg-[#006241] text-white",
+      desc: "슬림한 크림 화이트 바디에 헬로키티 포인트 아트워크와 산뜻한 레드 리드가 결합된 휴대용 보온병입니다.",
+      icon: "✨",
+      highlight: "초경량 슬림 바디 & 완전 밀폐 리드",
+    },
+    {
+      id: "md-doll-keyring",
+      name: "헬로키티 인형 키링",
+      price: "35,000원",
+      tag: "1인 1개 한정",
+      tagColor: "bg-[#D62300] text-white",
+      desc: "초록색 스타벅스 컵을 품에 꼬옥 안고 있는 헬로키티 미니 봉제인형 키링으로, 가방에 걸어 연출하기 좋습니다.",
+      icon: "🧸",
+      highlight: "스타벅스 그린 컵을 안고 있는 키링",
+    },
+    {
+      id: "md-glass-mug",
+      name: "투명 글라스 머그",
+      price: "23,000원",
+      tag: "VINTAGE",
+      tagColor: "bg-[#006241] text-white",
+      desc: "투명한 내열 유리 위에 크리스마스 헬로키티 일러스트와 산뜻한 빨간 손잡이로 포인트를 준 빈티지 무드의 유리컵입니다.",
+      icon: "🥛",
+      highlight: "빨간 손잡이 포인트 내열 글라스",
+    },
+    {
+      id: "md-foldable-bag",
+      name: "레드 접이식 에코백",
+      price: "[출시 당일 공개 / [ ]원]",
+      tag: "ECO BAG",
+      tagColor: "bg-neutral-700 text-white",
+      desc: "‘HAPPINESS IN EVERY CUP’ 문구와 아기자기한 키티 패턴이 가득 담긴 접이식 휴대용 포켓 에코백입니다.",
+      icon: "👜",
+      highlight: "간편한 접이식 휴대용 파우치 일체형",
+    },
+  ];
+
   const drinksAndFoods = [
     {
       id: "drink-toffee",
@@ -11,7 +95,7 @@ export default function Home() {
       desc: "진한 초콜릿에 고소하고 달콤한 토피 넛 시럽이 어우러지고, 부드러운 휘핑크림 위에 헬로키티 시그니처 '빨간 리본 초콜릿 토핑'이 올라간 스페셜 홀리데이 음료입니다.",
       badge: "⭐ 별 3개 추가 적립",
       badgeColor: "bg-[#D62300] text-white",
-      imgUrl: "https://image.istarbucks.co.kr/upload/store/skuimg/2026/11/[9200000007330]_20261104085911677.jpg",
+      imgUrl: "/kitty-toffee-drink.jpg",
       highlight: "빨간 리본 초콜릿 토핑 장식",
     },
     {
@@ -22,31 +106,8 @@ export default function Home() {
       desc: "사랑스러운 헬로키티 얼굴 모양을 그대로 살린 수제 마카롱으로, 부드러운 카라멜 풍미의 화이트 가나슈와 상큼달콤한 사과잼이 조화롭게 가득 채워져 있습니다.",
       badge: "LIMITED DESSERT",
       badgeColor: "bg-[#006241] text-white",
-      imgUrl: "https://image.istarbucks.co.kr/upload/store/skuimg/2026/11/[9300000006948]_20261104090355093.jpg",
+      imgUrl: "/kitty-macaron.jpg",
       highlight: "사과잼 & 카라멜 화이트 가나슈 필링",
-    },
-  ];
-
-  const mdReleaseSchedule = [
-    {
-      round: "1차 출시",
-      date: "11월 19일(목)",
-      time: "오전 7시 온라인 오픈 / 매장 오픈 시간",
-      count: "총 10종 선공개",
-      items: "크리스마스 트리 오브제, 홀리데이 세라믹 머그, 스테인리스 텀블러, 바리스타 인형 등",
-      badge: "D-DAY 출시",
-      color: "border-[#006241] bg-[#F4F9F5]",
-      badgeColor: "bg-[#006241] text-white",
-    },
-    {
-      round: "2차 출시",
-      date: "12월 2일(수)",
-      time: "오전 7시 온라인 오픈 / 매장 오픈 시간",
-      count: "추가 12종 공개",
-      items: "스페셜 머그, 홀리데이 토트백, 패브릭 굿즈, 키체인 등",
-      badge: "2차 오픈 예정",
-      color: "border-[#D62300] bg-[#FFF8F7]",
-      badgeColor: "bg-[#D62300] text-white",
     },
   ];
 
@@ -76,11 +137,11 @@ export default function Home() {
       url: "https://gift.kakao.com",
     },
     {
-      name: "SSG.COM & 네이버 브랜드스토어",
+      name: "SSG.COM, 29CM, 무신사 등 8개 채널",
       type: "공식 이커머스",
       openTime: "11월 19일 오전 7:00 순차 오픈",
-      desc: "신세계 SSG.COM 및 네이버 스타벅스 공식 브랜드스토어 정식 인증 판매처",
-      badge: "온라인 인증관",
+      desc: "신세계 SSG.COM, 네이버 브랜드스토어, G마켓, 29CM, 무신사, W컨셉 등 8개 정식 판매처",
+      badge: "온라인 공식관",
       url: "https://www.ssg.com",
     },
   ];
@@ -113,46 +174,129 @@ export default function Home() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#11241A]">
               스타벅스 × 헬로키티
               <span className="block text-2xl sm:text-3xl md:text-4xl text-[#006241] font-extrabold mt-1">
-                2026 크리스마스 컬렉션
+                A Sweeter Winter Together
               </span>
             </h1>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-lg mx-auto leading-relaxed font-medium">
-              11월 19일부터 12월 31일까지 전국 매장과 온라인 스토어에서 펼쳐지는 특별한 연말 축제!
-              리본 초콜릿 음료와 마카롱, 크리스마스 트리 & 머그까지 총 22종 한정판 굿즈를 만나보세요.
+              <strong>11월 19일(목) 오전 7시 온라인 오픈!</strong> 스타벅스 2차 크리스마스 프로모션으로 찾아온 헬로키티 한정판 미니 트리, 머그, 텀블러 실물 굿즈 사진과 개별 정가를 확인해 보세요.
             </p>
           </div>
 
           {/* CTA 버튼 */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
-              href="#drinks-foods"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white bg-[#006241] hover:bg-[#004d33] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+              href="#md-items"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white bg-[#D62300] hover:bg-[#b81e00] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>신규 음료 & 디저트 보기</span>
+              <span>올해 굿즈 사진 & 가격 보기</span>
               <span>↓</span>
             </a>
             <a
-              href="#md-schedule"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-[#D62300] bg-[#FFF0ED] hover:bg-[#FFE3DE] border border-[#F5B8AD] transition-all"
+              href="#drinks-foods"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-[#006241] bg-[#E8F2EC] hover:bg-[#d6e7dc] border border-[#006241]/20 transition-all"
             >
-              <span>22종 굿즈 출시 일정</span>
+              <span>신규 음료 & 마카롱</span>
               <span>→</span>
             </a>
           </div>
         </header>
 
         {/* =========================================================
-            2. 신규 콜라보 음료 & 디저트 실물 사진 쇼케이스
+            2. 올해 공식 굿즈 실물 보도사진 & 개별 품목/가격 쇼케이스
+           ========================================================= */}
+        <section id="md-items" className="space-y-5 scroll-mt-6 sm:scroll-mt-10">
+          <div className="flex items-center justify-between px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🎁</span>
+              <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
+                2026 스타벅스 헬로키티 크리스마스 굿즈 (11/19 1차)
+              </h2>
+            </div>
+            <span className="text-xs font-bold text-[#D62300] bg-[#FFF0ED] px-3 py-1 rounded-full border border-[#F5B8AD]">
+              1차 10종 출시
+            </span>
+          </div>
+
+          {/* ⭐ 올해 실제 보도자료 실물 굿즈 단체 사진 */}
+          <div className="rounded-3xl border-2 border-[#006241]/25 bg-white overflow-hidden shadow-sm">
+            <div className="relative w-full overflow-hidden bg-neutral-100">
+              <img
+                src="/starbucks-kitty-2026.jpg"
+                alt="2026 스타벅스 헬로키티 크리스마스 프로모션 공식 보도자료 실물 굿즈 사진"
+                className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-300"
+              />
+            </div>
+            <div className="p-4 bg-[#F8FAF8] border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-neutral-600">
+              <span className="font-bold text-[#006241]">
+                📸 2026 크리스마스 프로모션 공식 실물 보도사진 (미니 트리, 머그, 텀블러, 키링 등)
+              </span>
+              <span className="text-[11px] text-neutral-500">
+                11월 19일 오전 7시 온라인 8개 채널 & 매장 오픈
+              </span>
+            </div>
+          </div>
+
+          {/* 굿즈 8대 주요 품목 개별 가격 & 스펙 그리드 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {mdItems.map((item) => (
+              <div
+                key={item.id}
+                className="group rounded-2xl border border-[#006241]/20 bg-white p-4 sm:p-5 shadow-xs hover:shadow-md hover:border-[#006241] transition-all flex flex-col justify-between"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${item.tagColor}`}>
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-extrabold text-base text-[#11241A] group-hover:text-[#006241] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs font-semibold text-[#D62300] mt-0.5">
+                      ✨ {item.highlight}
+                    </p>
+                    <p className="text-xs text-neutral-600 mt-1.5 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 가격 정보 */}
+                <div className="pt-3.5 mt-3.5 border-t border-neutral-100 flex items-center justify-between">
+                  <span className="text-xs text-neutral-500 font-medium">공식 정가</span>
+                  <span className="text-base font-black text-[#D62300]">
+                    {item.price}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 캠프컵 별도 출시 주의사항 안내 배너 */}
+          <div className="rounded-2xl border border-amber-300 bg-amber-50/80 p-4 flex items-start gap-3">
+            <span className="text-xl">⚠️</span>
+            <div className="text-xs text-amber-900 leading-relaxed">
+              <strong className="font-bold block text-sm mb-0.5">[출시 품목 참고 안내]</strong>
+              기대를 모았던 <strong>‘SS 위드 헬로키티 캠프컵 텀블러 591ml (레드·크림·초코 3종)’</strong>은 11월 19일 1차 오픈 목록에서 제외되었으며, <strong>추후 별도 일정으로 재공지</strong>되어 출시될 예정입니다.
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================
+            3. 신규 콜라보 음료 & 마카롱 실물 사진
            ========================================================= */}
         <section id="drinks-foods" className="space-y-4 scroll-mt-6 sm:scroll-mt-10">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <span className="text-xl">☕</span>
               <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
-                NEW BEVERAGE & DESSERT
+                신규 음료 & 디저트 실물 사진
               </h2>
             </div>
-            <span className="text-xs font-bold text-[#D62300] bg-[#FFF0ED] px-3 py-1 rounded-full border border-[#F5B8AD]">
+            <span className="text-xs font-bold text-[#006241]">
               11월 19일 출시
             </span>
           </div>
@@ -183,7 +327,6 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* 상품 정보 */}
                   <div>
                     <h3 className="font-extrabold text-base text-[#11241A] group-hover:text-[#006241] transition-colors">
                       {item.name}
@@ -197,7 +340,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* 가격 정보 */}
                 <div className="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between">
                   <span className="text-xs text-neutral-500 font-medium">출시 가격</span>
                   <span className="text-xs sm:text-sm font-bold text-neutral-700">
@@ -208,7 +350,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Tri-Star Dash 이벤트 안내 배너 */}
+          {/* Tri-Star Dash 이벤트 안내 */}
           <div className="rounded-2xl border border-[#D62300]/30 bg-[#FFF5F2] p-4 sm:p-5 flex items-start gap-3.5">
             <span className="text-2xl mt-0.5">⭐</span>
             <div className="space-y-1 text-xs sm:text-sm">
@@ -216,83 +358,76 @@ export default function Home() {
                 [이벤트] 헬로키티 음료 주문 시 별 3개 추가 적립! (Tri-Star Dash)
               </div>
               <p className="text-neutral-700 leading-relaxed font-medium">
-                <strong>11월 19일 ~ 11월 25일 (7일간)</strong> 스타벅스 그린·골드 회원이 사이렌 오더 또는 딜리버스로 <strong>‘헬로키티 토피 초콜릿’</strong> 또는 <strong>‘홀리데이 캐모마일 릴렉서’</strong> 주문 시 한 잔당 <strong>별 3개</strong> 추가 적립 (매장 POS 결제 시 별 2개).
+                <strong>11월 19일 ~ 11월 25일 (7일간)</strong> 스타벅스 그린·골드 회원이 사이렌 오더 또는 딜리버스로 <strong>‘헬로키티 토피 초콜릿’</strong> 또는 <strong>‘홀리데이 캐모마일 릴렉서’</strong> 주문 시 한 잔당 <strong>별 3개</strong> 추가 적립 (매장 POS 주문 시 별 2개).
               </p>
             </div>
           </div>
         </section>
 
         {/* =========================================================
-            3. 총 22종 굿즈(MD) 분산 출시 일정 & 실물 컷
+            4. 1차 & 2차 분산 출시 일정
            ========================================================= */}
-        <section id="md-schedule" className="space-y-4 scroll-mt-6 sm:scroll-mt-10">
+        <section className="space-y-4">
           <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-2">
-              <span className="text-xl">🎀</span>
-              <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
-                총 22종 콜라보 굿즈 분산 출시 일정
-              </h2>
-            </div>
-            <span className="text-xs font-bold text-[#006241]">
-              1차 10종 + 2차 12종
-            </span>
+            <h2 className="text-lg sm:text-xl font-black text-[#11241A] flex items-center gap-2">
+              <span>🗓️</span>
+              <span>총 22종 분산 출시 일정 캘린더</span>
+            </h2>
           </div>
 
-          {/* 굿즈 단체 실물 컷 이미지 */}
-          <div className="rounded-3xl border border-[#006241]/20 bg-white overflow-hidden shadow-xs">
-            <img
-              src="https://about.starbucks.com/uploads/2025/10/Starbucks-Hello-Kitty-Collaboration-2.jpg"
-              alt="스타벅스 x 헬로키티 콜라보레이션 굿즈 실물 컬렉션"
-              className="w-full h-auto object-cover"
-              loading="lazy"
-            />
-            <div className="p-4 bg-[#F8FAF8] border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-600">
-              <span className="font-semibold text-[#006241]">📸 스타벅스 공식 한정판 MD 실물 컷</span>
-              <span className="text-[11px] text-neutral-400">가격은 19일 오전 7시 공식 공개</span>
-            </div>
-          </div>
-
-          {/* 1차 & 2차 분산 출시 카드 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            {mdReleaseSchedule.map((sched) => (
-              <div
-                key={sched.round}
-                className={`p-5 rounded-2xl border-2 ${sched.color} space-y-2`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${sched.badgeColor}`}>
-                    {sched.badge}
-                  </span>
-                  <span className="text-xs font-bold text-[#11241A]">{sched.count}</span>
-                </div>
-                <h3 className="font-extrabold text-base text-[#11241A] pt-1">
-                  {sched.round} : {sched.date}
-                </h3>
-                <p className="text-xs text-[#006241] font-semibold">
-                  ⏰ {sched.time}
-                </p>
-                <p className="text-xs text-neutral-600 leading-relaxed font-medium">
-                  {sched.items}
-                </p>
+            <div className="p-5 rounded-2xl border-2 border-[#006241] bg-[#F4F9F5] space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#006241] text-white">
+                  D-DAY 1차 오픈
+                </span>
+                <span className="text-xs font-bold text-[#006241]">총 10종 선공개</span>
               </div>
-            ))}
+              <h3 className="font-extrabold text-base text-[#11241A] pt-1">
+                1차 출시 : 11월 19일(목)
+              </h3>
+              <p className="text-xs text-[#006241] font-semibold">
+                ⏰ 오전 7시 온라인 오픈 / 매장 영업시간 오픈
+              </p>
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                크리스마스 미니 트리(61,000원), 머그(38,000원), 텀블러(52,000원), 인형 키링(35,000원) 등 10종
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl border-2 border-[#D62300] bg-[#FFF8F7] space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#D62300] text-white">
+                  2차 오픈 예정
+                </span>
+                <span className="text-xs font-bold text-[#D62300]">추가 12종 공개</span>
+              </div>
+              <h3 className="font-extrabold text-base text-[#11241A] pt-1">
+                2차 출시 : 12월 2일(수)
+              </h3>
+              <p className="text-xs text-[#D62300] font-semibold">
+                ⏰ 오전 7시 온라인 오픈 / 매장 영업시간 오픈
+              </p>
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                스페셜 홀리데이 머그, 토트백, 패브릭 굿즈 등 12종 추가 라인업 순차 공개
+              </p>
+            </div>
           </div>
         </section>
 
         {/* =========================================================
-            4. 공식 온·오프라인 판매처 (11월 19일 오전 7시 오픈)
+            5. 온·오프라인 8개 공식 판매처 안내
            ========================================================= */}
         <section id="channels" className="rounded-3xl border border-[#006241]/20 bg-white p-6 sm:p-8 space-y-5 shadow-xs scroll-mt-6 sm:scroll-mt-10">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#006241] uppercase tracking-wider">
               <span>🛒</span>
-              <span>11월 19일 오픈 판매 채널</span>
+              <span>11월 19일 오전 7시 판매 채널</span>
             </div>
             <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
               온·오프라인 공식 판매처 안내
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600">
-              온라인은 11월 19일 오전 7시부터 선착순 판매가 시작되며, 매장은 각 지점별 오픈 시간에 판매됩니다.
+              온라인은 11월 19일 오전 7시부터 선착순 판매가 시작되며, 오프라인 매장은 지점별 오픈 시간에 판매됩니다.
             </p>
           </div>
 
@@ -325,7 +460,7 @@ export default function Home() {
         </section>
 
         {/* =========================================================
-            5. 문의 & 입점/재입고 알림 폼 (Contact Form 연동)
+            6. 문의 폼
            ========================================================= */}
         <ContactForm />
 
