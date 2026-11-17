@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.xeoag.xyz"),
-  title: "깅월",
-  description: "오늘도 행복한 하루",
+  title: "[ ] × 헬로키티 콜라보 컬렉션",
+  description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
   openGraph: {
-    title: "깅월",
-    description: "오늘도 행복한 하루",
+    title: "[ ] × 헬로키티 콜라보 컬렉션",
+    description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
     url: "https://www.xeoag.xyz",
-    siteName: "깅월",
+    siteName: "HELLO KITTY COLLABORATION",
     images: [
       {
         url: "/cat.jpg",
-        alt: "깅월",
+        alt: "헬로키티 콜라보",
       },
     ],
     locale: "ko_KR",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "깅월",
-    description: "오늘도 행복한 하루",
+    title: "[ ] × 헬로키티 콜라보 컬렉션",
+    description: "[ ]와 헬로키티가 함께하는 리미티드 에디션 상품 쇼케이스입니다.",
     images: ["/cat.jpg"],
   },
   verification: {

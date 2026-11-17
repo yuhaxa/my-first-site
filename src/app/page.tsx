@@ -2,120 +2,209 @@ import Link from "next/link";
 import ContactForm from "./ContactForm";
 
 export default function Home() {
-  const techStack = [
+  const products = [
     {
-      name: "Next.js 16",
-      desc: "App Router & Turbopack",
+      id: "product-1",
+      name: "[ ] 헬로키티 에디션 A",
+      tag: "LIMITED",
+      category: "[ ]",
+      price: "[ ]",
+      desc: "헬로키티의 시그니처 리본 포인트와 [ ]의 독창적인 디자인이 조화를 이루는 한정판 아이템입니다.",
+      status: "출시 예정",
     },
     {
-      name: "TypeScript",
-      desc: "안정적인 정적 타입 시스템",
+      id: "product-2",
+      name: "[ ] 헬로키티 에디션 B",
+      tag: "NEW",
+      category: "[ ]",
+      price: "[ ]",
+      desc: "일상 속 사랑스러운 무드를 더해주는 스페셜 콜라보레이션 라인업입니다.",
+      status: "출시 예정",
     },
     {
-      name: "Tailwind CSS",
-      desc: "모던 유틸리티 스타일링",
+      id: "product-3",
+      name: "[ ] 헬로키티 에디션 C",
+      tag: "SPECIAL",
+      category: "[ ]",
+      price: "[ ]",
+      desc: "소장 가치를 높인 프리미엄 디테일과 [ ] 한정 컬러웨이가 적용되었습니다.",
+      status: "출시 예정",
+    },
+  ];
+
+  const highlights = [
+    {
+      icon: "🎀",
+      title: "시그니처 레드 리본 디테일",
+      desc: "헬로키티의 상징적인 리본 참과 고유의 아트워크가 [ ] 곳곳에 섬세하게 각인되었습니다.",
+    },
+    {
+      icon: "✨",
+      title: "한정판 전용 기프트 패키지",
+      desc: "콜라보 전용 스페셜 핑크 박스와 [ ] 더스트백이 모든 구매 고객에게 함께 제공됩니다.",
+    },
+    {
+      icon: "🎁",
+      title: "선착순 스페셜 콜라보 굿즈",
+      desc: "사전 예약 및 출시 기간 동안 [ ] 이상 구매 시 한정판 굿즈를 선착순 증정합니다.",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(to_bottom,#DAE9DF_0%,#D8EFF2_33%,#D8EFF2_100%)] text-gray-800 flex flex-col items-center justify-center p-6 sm:p-12">
-      <div className="max-w-2xl w-full text-left space-y-8">
-        {/* 상단 뱃지 */}
-        <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#AD2953]">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#AD2953]" />
-          프로젝트 준비 완료
-        </div>
+    <main className="min-h-screen bg-[linear-gradient(to_bottom,#FFF2F5_0%,#FFEBF0_40%,#FFF5F8_100%)] text-neutral-800 flex flex-col items-center justify-start p-4 sm:p-8 md:p-12 font-sans selection:bg-[#F8A5C2] selection:text-white">
+      <div className="max-w-2xl w-full space-y-10">
 
-        {/* 메인 타이틀 및 별 고양이 */}
-        <div className="flex flex-col items-start text-left space-y-4">
-          <div className="w-fit space-y-3">
-            {/* 별 고양이 5개 */}
-            <div className="flex items-center justify-between w-full px-1">
-              <svg width="0" height="0" className="absolute">
-                <defs>
-                  <clipPath id="star-clip">
-                    <path d="M 50 2 Q 53 2 55 8 L 63 28 L 88 32 Q 93 33 91 38 L 74 56 L 79 82 Q 80 87 75 85 L 50 73 L 25 85 Q 20 87 21 82 L 26 56 L 9 38 Q 7 33 12 32 L 37 28 L 45 8 Q 47 2 50 2 Z" />
-                  </clipPath>
-                </defs>
-              </svg>
-              {[1, 2, 3, 4, 5].map((i) => (
-                <svg key={i} className="w-10 h-10 sm:w-14 sm:h-14" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <image href="/cat.jpg" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice" clipPath="url(#star-clip)" />
-                  <path d="M 50 2 Q 53 2 55 8 L 63 28 L 88 32 Q 93 33 91 38 L 74 56 L 79 82 Q 80 87 75 85 L 50 73 L 25 85 Q 20 87 21 82 L 26 56 L 9 38 Q 7 33 12 32 L 37 28 L 45 8 Q 47 2 50 2 Z" stroke="#AD2953" strokeWidth="1" vectorEffect="non-scaling-stroke" fill="none" />
-                </svg>
-              ))}
-            </div>
+        {/* =========================================================
+            1. 히어로 섹션 (Hero Section)
+           ========================================================= */}
+        <header className="relative w-full rounded-3xl p-6 sm:p-10 border border-[#F4BAC8] bg-white/85 shadow-sm text-center space-y-5 overflow-hidden">
+          {/* 상단 핑크 리본 장식 */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F28B9F] bg-[#FFEAEF] text-xs font-bold text-[#E03154]">
+            <span>🎀</span>
+            <span>[ ] × HELLO KITTY LIMITED COLLABORATION</span>
+          </div>
 
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tighter text-neutral-900 whitespace-nowrap">
-              안녕하세요, 깅나라입니다
+          {/* 중앙 타이틀 영역 */}
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#2B1B20]">
+              [ ] × 헬로키티
+              <span className="block text-2xl sm:text-3xl md:text-4xl text-[#E03154] font-extrabold mt-1">
+                콜라보레이션 컬렉션
+              </span>
             </h1>
-          </div>
-
-          <p className="text-neutral-700 font-medium text-xs sm:text-sm text-left leading-relaxed">
-            Next.js App Router, TypeScript, Tailwind CSS 기반의 가장 단순하고 깔끔한 스타터 템플릿입니다.
-          </p>
-
-          {/* 버튼 영역 */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            {/* 문의사항 바로가기 버튼 */}
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-[#AD2953] bg-white/90 hover:bg-white border border-[#AD2953] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              <span>문의사항 남기기</span>
-            </a>
-
-            {/* 바이브코딩 시작하기 버튼 */}
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#AD2953] hover:bg-[#8e2043] transition-all shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>바이브코딩 시작하기</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-
-        {/* 기술 스택 카드 (박스 색상 통일) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left">
-          {techStack.map((tech) => (
-            <div
-              key={tech.name}
-              className="p-4 rounded-2xl border border-[#AD2953] bg-[#D8EFF2]"
-            >
-              <div className="font-bold text-sm text-[#AD2953]">{tech.name}</div>
-              <div className="text-xs text-[#AD2953] mt-1">{tech.desc}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* 시작 안내 카드 (박스 색상 통일) */}
-        <div className="p-5 rounded-2xl border border-[#AD2953] bg-[#D8EFF2] text-left space-y-3">
-          <div className="text-xs font-bold text-[#AD2953] uppercase tracking-wider">
-            시작하기
-          </div>
-          <div className="space-y-2.5 text-sm">
-            <div className="flex items-center justify-between bg-[#D8EFF2] px-3.5 py-2.5 rounded-xl border border-[#AD2953] font-mono text-xs text-[#AD2953]">
-              <span className="font-semibold">npm run dev</span>
-              <span className="text-[#AD2953] font-sans text-[11px]">로컬 서버 실행 (http://localhost:3000)</span>
-            </div>
-            <p className="text-xs text-[#AD2953]">
-              <code className="text-[#AD2953] font-mono bg-[#D8EFF2] px-2 py-0.5 rounded border border-[#AD2953] font-medium">src/app/page.tsx</code> 파일을 수정하여 나만의 사이트를 만들어보세요.
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-lg mx-auto leading-relaxed font-medium">
+              [ ]의 고유한 감성과 전 세계에서 사랑받는 헬로키티의 특별한 만남.
+              일상에 사랑스러운 마법을 불어넣는 한정판 상품 라인업을 만나보세요.
             </p>
           </div>
-        </div>
 
-        {/* 문의사항 섹션 */}
+          {/* 버튼 영역 */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a
+              href="#products"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white bg-[#E03154] hover:bg-[#C92042] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>콜라보 라인업 보기</span>
+              <span>↓</span>
+            </a>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-[#E03154] bg-[#FFF0F4] hover:bg-[#FFE3EC] border border-[#F4BAC8] transition-all"
+            >
+              <span>콜라보 스토리</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </header>
+
+        {/* =========================================================
+            2. 상품 라인업 쇼케이스 (Product Grid)
+           ========================================================= */}
+        <section id="products" className="space-y-4 scroll-mt-6 sm:scroll-mt-10">
+          <div className="flex items-center justify-between px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🌸</span>
+              <h2 className="text-lg sm:text-xl font-black text-[#2B1B20]">
+                COLLABORATION LINEUP
+              </h2>
+            </div>
+            <span className="text-xs font-semibold text-[#E03154] bg-[#FFEAEF] px-2.5 py-1 rounded-full border border-[#F4BAC8]">
+              총 3개 라인업
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {products.map((item) => (
+              <div
+                key={item.id}
+                className="group relative rounded-2xl border border-[#F4BAC8] bg-white p-5 shadow-xs hover:shadow-md hover:border-[#E03154] transition-all flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  {/* 상단 태그 및 상태 */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E03154] text-white">
+                      {item.tag}
+                    </span>
+                    <span className="text-[11px] font-medium text-neutral-500">
+                      {item.status}
+                    </span>
+                  </div>
+
+                  {/* 상품 이미지 플레이스홀더 */}
+                  <div className="w-full aspect-square rounded-xl bg-[#FFF5F8] border border-[#FBE3EA] flex flex-col items-center justify-center text-center p-3 group-hover:scale-[1.02] transition-transform">
+                    <span className="text-4xl mb-1">🎀</span>
+                    <span className="text-xs font-bold text-[#E03154]">{item.category}</span>
+                    <span className="text-[10px] text-neutral-400 mt-0.5">Hello Kitty Edition</span>
+                  </div>
+
+                  {/* 상품 정보 */}
+                  <div>
+                    <h3 className="font-bold text-sm text-[#2B1B20] group-hover:text-[#E03154] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs text-neutral-600 mt-1 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 가격 정보 */}
+                <div className="pt-4 mt-4 border-t border-[#F8E1E7] flex items-center justify-between">
+                  <span className="text-xs text-neutral-500 font-medium">판매가</span>
+                  <span className="text-sm font-extrabold text-[#E03154]">
+                    {item.price}원
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* =========================================================
+            3. 콜라보 특별 포인트 (Special Highlights)
+           ========================================================= */}
+        <section className="rounded-3xl border border-[#F4BAC8] bg-white/90 p-6 sm:p-8 space-y-5 shadow-xs">
+          <div className="text-center space-y-1">
+            <span className="text-xs font-bold text-[#E03154] uppercase tracking-wider">
+              SPECIAL HIGHLIGHTS
+            </span>
+            <h2 className="text-lg sm:text-xl font-black text-[#2B1B20]">
+              이번 콜라보레이션의 특별한 3가지 포인트
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            {highlights.map((point) => (
+              <div
+                key={point.title}
+                className="p-4 rounded-2xl bg-[#FFF5F8] border border-[#F8D2DD] space-y-2 text-left"
+              >
+                <div className="text-2xl">{point.icon}</div>
+                <h3 className="font-bold text-xs sm:text-sm text-[#2B1B20]">
+                  {point.title}
+                </h3>
+                <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                  {point.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* =========================================================
+            4. 문의 & 사전 예약 신청 폼 (Contact Form 연동)
+           ========================================================= */}
         <ContactForm />
+
+        {/* 하단 푸터 */}
+        <footer className="text-center py-6 text-xs text-neutral-500 space-y-1">
+          <p>© [ ] × HELLO KITTY · All rights reserved.</p>
+          <p className="text-[11px] text-neutral-400">
+            헬로키티(Hello Kitty)는 Sanrio Co., Ltd.의 등록 상표입니다.
+          </p>
+        </footer>
+
       </div>
     </main>
   );
 }
-
-
-
