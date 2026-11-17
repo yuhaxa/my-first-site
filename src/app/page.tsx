@@ -160,12 +160,12 @@ export default function Home() {
             <span>11월 19일 오전 7시 START · 스타벅스 크리스마스 프로모션</span>
           </div>
 
-          {/* ⭐ 메인 사진 교체: Threads에 공개된 최신 스타벅스 헬로키티 실물 굿즈 사진 */}
-          <div className="relative w-full overflow-hidden rounded-2xl border border-[#006241]/15 shadow-md">
+          {/* ⭐ 메인 사진: 공식 포스터 (A SWEETER WINTER TOGETHER) */}
+          <div className="relative w-full overflow-hidden rounded-2xl border border-[#006241]/15 shadow-md bg-[#FFF5F6] flex justify-center">
             <img
-              src="/threads-kitty-cover.jpg"
-              alt="스타벅스 x 헬로키티 11월 19일 크리스마스 콜라보 굿즈 공식 실물 사진"
-              className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-300"
+              src="/main-hero-kitty.jpg"
+              alt="스타벅스 x 헬로키티 A SWEETER WINTER TOGETHER 크리스마스 공식 포스터"
+              className="w-full max-w-lg h-auto object-cover rounded-xl hover:scale-[1.01] transition-transform duration-300"
             />
           </div>
 
