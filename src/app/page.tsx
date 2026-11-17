@@ -217,21 +217,40 @@ export default function Home() {
             </span>
           </div>
 
-          {/* ⭐ 굿즈 섹션 실물 사진: Threads 실물 굿즈 컷 */}
+          {/* ⭐ 굿즈 섹션 메인 실물 사진: 공식 실물 화보 2종 갤러리 */}
           <div className="rounded-3xl border-2 border-[#006241]/25 bg-white overflow-hidden shadow-sm">
-            <div className="relative w-full overflow-hidden bg-neutral-100">
-              <img
-                src="/threads-kitty-cover.jpg"
-                alt="11월 19일 출시 스타벅스 x 헬로키티 크리스마스 MD 굿즈 실물 컬렉션"
-                className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-300"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 bg-neutral-50">
+              <div className="relative overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-xs">
+                <img
+                  src="/kitty-goods-bag-keyring.jpg"
+                  alt="스타벅스 x 헬로키티 가방, 인형 키링, 접이식 에코백, 보온병 공식 실물 화보"
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-300"
+                />
+                <div className="p-3 bg-white/95 border-t border-neutral-100 text-center">
+                  <span className="text-xs font-bold text-[#006241]">
+                    👜 가방 & 인형 키링 & 접이식 에코백 & 보온병
+                  </span>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-xs">
+                <img
+                  src="/kitty-goods-tumblers.jpg"
+                  alt="스타벅스 x 헬로키티 핸들 텀블러 3종 (화이트, 레드, 브라운) 공식 실물 화보"
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-300"
+                />
+                <div className="p-3 bg-white/95 border-t border-neutral-100 text-center">
+                  <span className="text-xs font-bold text-[#D62300]">
+                    ☕ 핸들 텀블러 3종 (화이트 · 레드 · 브라운)
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="p-4 bg-[#F8FAF8] border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-neutral-600">
               <span className="font-bold text-[#006241]">
-                📸 스타벅스 헬로키티 크리스마스 MD 실물 공개 컷 (미니 트리, 머그, 텀블러, 인형 키링 등)
+                📸 스타벅스 × 헬로키티 크리스마스 MD 공식 실물 화보 (미니 트리, 머그, 텀블러, 인형 키링 등)
               </span>
               <span className="text-[11px] text-[#D62300] font-semibold">
-                11월 19일 오전 7시 오픈
+                11월 19일 오전 7시 온·오프라인 동시 오픈
               </span>
             </div>
           </div>
