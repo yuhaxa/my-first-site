@@ -2,87 +2,87 @@ import Link from "next/link";
 import ContactForm from "./ContactForm";
 
 export default function Home() {
-  // 이번 11월 19일(목) 1차 공식 출시 굿즈(MD) 리스트 및 정가
+  // 이번 11월 19일(목) 1차 공식 출시 굿즈(MD) 리스트 및 스타벅스 공식 공지 9종 정가
   const mdItems = [
     {
+      id: "md-workbag",
+      name: "데일리 워크백 (브라운 가방)",
+      price: "59,000원",
+      tag: "OFFICIAL BAG",
+      tagColor: "bg-[#006241] text-white",
+      desc: "실물 화보에 등장한 넉넉한 수납력의 전면 2구 포켓과 헬로키티 자수, 레드 리본 장식 및 'HELLO KITTY & STARBUCKS' 라벨이 부착된 공식 가방입니다.",
+      icon: "👜",
+      highlight: "실물 화보 메인 가방 · 11월 19일 정식 출시",
+    },
+    {
+      id: "md-market-keychain",
+      name: "마켓백 키체인 (레드 장바구니)",
+      price: "35,000원",
+      tag: "KEYRING & BAG",
+      tagColor: "bg-[#D62300] text-white",
+      desc: "스타벅스 그린 컵을 안고 있는 헬로키티 봉제인형 키체인 안에 ‘HAPPINESS IN EVERY CUP’ 레드 접이식 장바구니가 수납되는 2in1 굿즈입니다.",
+      icon: "🧸",
+      highlight: "초록 컵 키티 인형 + 접이식 에코백 일체형",
+    },
+    {
       id: "md-tree",
-      name: "크리스마스 미니 트리",
+      name: "미니 트리 & 오너먼트 세트",
       price: "61,000원",
       tag: "HOT & LIMITED",
       tagColor: "bg-[#D62300] text-white",
-      desc: "레드 깅엄 체크 패턴의 화분과 헬로키티 & 스타벅스 커피 클립 오너먼트가 포함된 크리스마스 인테리어 트리 오브제입니다.",
+      desc: "레드 깅엄 체크 패턴의 화분과 헬로키티 & 스타벅스 커피 클립 오너먼트가 포함된 크리스마스 인테리어 트리 오브제 세트입니다.",
       icon: "🎄",
-      highlight: "키티 & 커피 클립 오너먼트 포함",
-    },
-    {
-      id: "md-handle-tumbler",
-      name: "레드 핸들 텀블러",
-      price: "52,000원",
-      tag: "NEW",
-      tagColor: "bg-[#006241] text-white",
-      desc: "편리한 그립감의 튼튼한 핸들과 감각적인 레드 컬러웨이가 돋보이는 대용량 보온·보냉 스테인리스 텀블러입니다.",
-      icon: "🥤",
-      highlight: "인체공학적 핸들 & 진공 보온 구조",
+      highlight: "키티 & 커피 클립 오너먼트 포함 최고가 프리미엄",
     },
     {
       id: "md-ribbon-coldcup",
-      name: "화이트 리본 콜드컵",
+      name: "SS 파인니 텀블러 (473ml)",
       price: "48,000원",
       tag: "SIGNATURE",
-      tagColor: "bg-[#D62300] text-white",
-      desc: "사탕 지팡이(캔디 케인) 스트라이프 빨대와 헬로키티의 시그니처 대형 레드 리본 장식이 더해진 크리스마스 콜드컵입니다.",
+      tagColor: "bg-[#006241] text-white",
+      desc: "사탕 지팡이(캔디 케인) 스트라이프 빨대와 헬로키티의 시그니처 대형 레드 리본 장식이 결합된 크리스마스 콜드컵 텀블러입니다.",
       icon: "🎀",
       highlight: "캔디 케인 스트로우 + 대형 레드 리본",
     },
     {
-      id: "md-face-mug",
-      name: "헬로키티 페이스 머그",
-      price: "38,000원",
-      tag: "BEST",
-      tagColor: "bg-[#006241] text-white",
-      desc: "헬로키티의 사랑스러운 얼굴 형태를 입체적으로 형상화한 소장 가치 100% 한정판 도자기 세라믹 머그잔입니다.",
-      icon: "☕",
-      highlight: "3D 입체 키티 얼굴 디자인",
-    },
-    {
       id: "md-slim-thermos",
-      name: "화이트 슬림 보온병",
+      name: "SS 모카 텀블러 (355ml)",
       price: "38,000원",
       tag: "PORTABLE",
       tagColor: "bg-[#006241] text-white",
-      desc: "슬림한 크림 화이트 바디에 헬로키티 포인트 아트워크와 산뜻한 레드 리드가 결합된 휴대용 보온병입니다.",
+      desc: "슬림한 크림 화이트 바디에 헬로키티 일러스트와 산뜻한 레드 리드가 결합된 보온·보냉 스테인리스 텀블러(보온병)입니다.",
       icon: "✨",
-      highlight: "초경량 슬림 바디 & 완전 밀폐 리드",
-    },
-    {
-      id: "md-doll-keyring",
-      name: "헬로키티 인형 키링",
-      price: "35,000원",
-      tag: "1인 1개 한정",
-      tagColor: "bg-[#D62300] text-white",
-      desc: "초록색 스타벅스 컵을 품에 꼬옥 안고 있는 헬로키티 미니 봉제인형 키링으로, 가방에 걸어 연출하기 좋습니다.",
-      icon: "🧸",
-      highlight: "스타벅스 그린 컵을 안고 있는 키링",
+      highlight: "초경량 슬림 바디 & 밀폐 레드 리드",
     },
     {
       id: "md-glass-mug",
-      name: "투명 글라스 머그",
+      name: "컬러체인지 글라스 (500ml)",
       price: "23,000원",
       tag: "VINTAGE",
       tagColor: "bg-[#006241] text-white",
-      desc: "투명한 내열 유리 위에 크리스마스 헬로키티 일러스트와 산뜻한 빨간 손잡이로 포인트를 준 빈티지 무드의 유리컵입니다.",
+      desc: "투명한 내열 유리 위에 음료 온도에 따라 반응하는 크리스마스 헬로키티 일러스트와 산뜻한 빨간 손잡이가 달린 유리 머그잔입니다.",
       icon: "🥛",
-      highlight: "빨간 손잡이 포인트 내열 글라스",
+      highlight: "온도 반응 컬러체인지 & 레드 손잡이",
     },
     {
-      id: "md-foldable-bag",
-      name: "레드 접이식 에코백",
-      price: "[19일 당일 공개 / [ ]원]",
-      tag: "ECO BAG",
-      tagColor: "bg-neutral-700 text-white",
-      desc: "‘HAPPINESS IN EVERY CUP’ 문구와 아기자기한 키티 패턴이 가득 담긴 접이식 휴대용 포켓 에코백입니다.",
-      icon: "👜",
-      highlight: "간편한 접이식 휴대용 파우치 일체형",
+      id: "md-handle-tumbler",
+      name: "SS 캠프컵 텀블러 3종 (591ml)",
+      price: "각 52,000원",
+      tag: "11월 중 출시",
+      tagColor: "bg-amber-700 text-white",
+      desc: "화보에 등장한 크림, 레드, 초코(온라인 전용) 3가지 컬러웨이의 대용량 핸들 스테인리스 캠프컵 텀블러입니다.",
+      icon: "🥤",
+      highlight: "크림·레드·초코(온라인 전용) 3컬러",
+    },
+    {
+      id: "md-face-mug",
+      name: "헬로키티 페이스 머그 (355ml)",
+      price: "[19일 판매창 확인 / 38,000원 예상]",
+      tag: "입체 머그",
+      tagColor: "bg-neutral-600 text-white",
+      desc: "스타벅스 그린 컵을 품에 안은 헬로키티 3D 입체 세라믹 머그입니다. (공식 9종 가격표 외 품목으로 19일 당일 판매화면 확인 권장)",
+      icon: "☕",
+      highlight: "3D 입체 키티 얼굴 디자인 세라믹 머그",
     },
   ];
 
@@ -209,11 +209,11 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="text-xl">🎁</span>
               <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
-                스타벅스 헬로키티 크리스마스 굿즈 & 가격 (11/19 1차)
+                스타벅스 헬로키티 공식 MD 가격표 (11/19 1차)
               </h2>
             </div>
             <span className="text-xs font-bold text-[#D62300] bg-[#FFF0ED] px-3 py-1 rounded-full border border-[#F5B8AD]">
-              1차 10종 출시
+              품목당 최대 2개 구매 제한 (11/19~11/20)
             </span>
           </div>
 
@@ -409,7 +409,7 @@ export default function Home() {
                 ⏰ 오전 7시 온라인 오픈 / 매장 영업시간 오픈
               </p>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                크리스마스 미니 트리(61,000원), 머그(38,000원), 텀블러(52,000원), 인형 키링(35,000원) 등 10종
+                데일리 워크백(59,000원), 미니 트리(61,000원), 파인니/모카 텀블러(38,000~48,000원), 마켓백 키체인(35,000원) 등 공식 9종 (품목당 최대 2개 구매 제한)
               </p>
             </div>
 
