@@ -77,7 +77,7 @@ export default function Home() {
     {
       id: "md-foldable-bag",
       name: "레드 접이식 에코백",
-      price: "[출시 당일 공개 / [ ]원]",
+      price: "[19일 당일 공개 / [ ]원]",
       tag: "ECO BAG",
       tagColor: "bg-neutral-700 text-white",
       desc: "‘HAPPINESS IN EVERY CUP’ 문구와 아기자기한 키티 패턴이 가득 담긴 접이식 휴대용 포켓 에코백입니다.",
@@ -151,20 +151,20 @@ export default function Home() {
       <div className="max-w-2xl w-full space-y-10">
 
         {/* =========================================================
-            1. 히어로 섹션 (11월 19일 오픈 안내)
+            1. 히어로 섹션 (메인 사진 교체: Threads 공식 실물 사진)
            ========================================================= */}
         <header className="relative w-full rounded-3xl p-6 sm:p-9 border border-[#006241]/20 bg-white/95 shadow-sm text-center space-y-5 overflow-hidden">
           {/* 상단 뱃지 */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D62300]/40 bg-[#FFF0ED] text-xs font-black text-[#D62300]">
             <span>🎄</span>
-            <span>11월 19일 START · 2026 스타벅스 2차 크리스마스 프로모션</span>
+            <span>11월 19일 오전 7시 START · 스타벅스 크리스마스 프로모션</span>
           </div>
 
-          {/* 메인 키 비주얼 배너 */}
-          <div className="relative w-full overflow-hidden rounded-2xl border border-[#006241]/15 shadow-inner">
+          {/* ⭐ 메인 사진 교체: Threads에 공개된 최신 스타벅스 헬로키티 실물 굿즈 사진 */}
+          <div className="relative w-full overflow-hidden rounded-2xl border border-[#006241]/15 shadow-md">
             <img
-              src="https://about.starbucks.com/uploads/sites/29/2024/09/Hello-Kitty-KV1.png"
-              alt="스타벅스 x 헬로키티 크리스마스 프로모션 공식 키 비주얼"
+              src="/threads-kitty-cover.jpg"
+              alt="스타벅스 x 헬로키티 11월 19일 크리스마스 콜라보 굿즈 공식 실물 사진"
               className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-300"
             />
           </div>
@@ -178,7 +178,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-lg mx-auto leading-relaxed font-medium">
-              <strong>11월 19일(목) 오전 7시 온라인 오픈!</strong> 스타벅스 2차 크리스마스 프로모션으로 찾아온 헬로키티 한정판 미니 트리, 머그, 텀블러 실물 굿즈 사진과 개별 정가를 확인해 보세요.
+              <strong>키티 덕후들 11월 19일 오전 7시 알람 필수!</strong> 스타벅스가 크리스마스를 맞아 헬로키티와 함께 선보이는 역대급 한정판 MD 실물 라인업과 각 상품별 정가를 한눈에 확인해 보세요.
             </p>
           </div>
 
@@ -188,7 +188,7 @@ export default function Home() {
               href="#md-items"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs sm:text-sm text-white bg-[#D62300] hover:bg-[#b81e00] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>올해 굿즈 사진 & 가격 보기</span>
+              <span>굿즈 실물 & 가격표 보기</span>
               <span>↓</span>
             </a>
             <a
@@ -202,14 +202,14 @@ export default function Home() {
         </header>
 
         {/* =========================================================
-            2. 올해 공식 굿즈 실물 보도사진 & 개별 품목/가격 쇼케이스
+            2. 올해 공식 굿즈 실물 사진 & 개별 품목/가격 쇼케이스
            ========================================================= */}
         <section id="md-items" className="space-y-5 scroll-mt-6 sm:scroll-mt-10">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
               <span className="text-xl">🎁</span>
               <h2 className="text-lg sm:text-xl font-black text-[#11241A]">
-                2026 스타벅스 헬로키티 크리스마스 굿즈 (11/19 1차)
+                스타벅스 헬로키티 크리스마스 굿즈 & 가격 (11/19 1차)
               </h2>
             </div>
             <span className="text-xs font-bold text-[#D62300] bg-[#FFF0ED] px-3 py-1 rounded-full border border-[#F5B8AD]">
@@ -217,21 +217,21 @@ export default function Home() {
             </span>
           </div>
 
-          {/* ⭐ 올해 실제 보도자료 실물 굿즈 단체 사진 */}
+          {/* ⭐ 굿즈 섹션 실물 사진: Threads 실물 굿즈 컷 */}
           <div className="rounded-3xl border-2 border-[#006241]/25 bg-white overflow-hidden shadow-sm">
             <div className="relative w-full overflow-hidden bg-neutral-100">
               <img
-                src="/starbucks-kitty-2026.jpg"
-                alt="2026 스타벅스 헬로키티 크리스마스 프로모션 공식 보도자료 실물 굿즈 사진"
+                src="/threads-kitty-cover.jpg"
+                alt="11월 19일 출시 스타벅스 x 헬로키티 크리스마스 MD 굿즈 실물 컬렉션"
                 className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-300"
               />
             </div>
             <div className="p-4 bg-[#F8FAF8] border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-neutral-600">
               <span className="font-bold text-[#006241]">
-                📸 2026 크리스마스 프로모션 공식 실물 보도사진 (미니 트리, 머그, 텀블러, 키링 등)
+                📸 스타벅스 헬로키티 크리스마스 MD 실물 공개 컷 (미니 트리, 머그, 텀블러, 인형 키링 등)
               </span>
-              <span className="text-[11px] text-neutral-500">
-                11월 19일 오전 7시 온라인 8개 채널 & 매장 오픈
+              <span className="text-[11px] text-[#D62300] font-semibold">
+                11월 19일 오전 7시 오픈
               </span>
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* 가격 정보 */}
+                {/* 개별 정식 가격 정보 */}
                 <div className="pt-3.5 mt-3.5 border-t border-neutral-100 flex items-center justify-between">
                   <span className="text-xs text-neutral-500 font-medium">공식 정가</span>
                   <span className="text-base font-black text-[#D62300]">
